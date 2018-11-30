@@ -15,34 +15,8 @@ function initApplication(){
     document.getElementById("zipID").value = ""; 
 
 }
-
-function viewCurrentContact() {
-    currentContact = contactArray[currentContactIndex];
-    console.log(currentContact);
-    document.getElementById("nameID").value = currentContact.preferredName;   
-    document.getElementById("emailID").value = currentContact.email;   
-    document.getElementById("cityID").value = currentContact.city;   
-    document.getElementById("stateID").value = currentContact.state;
-    document.getElementById("zipID").value = currentContact.zip;
-
-
-    // Todo: Add additional fields.
-    document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + (contactArray.length);
-    document.getElementById("indexID").innerHTML;  
-}
-
-function importContacts() {
-    console.log("importContacts");
-    loadIndexandContacts(); 
-}
-
-function logContacts() {
-    console.log("contactArray: "); 
-    console.log("contactArray"); 
-}
-// Hiding the  "Previous" button when the currentContactIndex = 0. 
 function loadZip() { 
-    var availableTutorials  =  [
+    var zipLookup  =  [
         "60101",
         "60102",
         "60103",
@@ -135,10 +109,34 @@ function loadZip() {
         "60199"
     ];
     $( "#automplete-1" ).autocomplete({
-        source: availableTutorials
+        source: zipLookup
     });
 }
+function viewCurrentContact() {
+    currentContact = contactArray[currentContactIndex];
+    console.log(currentContact);
+    document.getElementById("nameID").value = currentContact.preferredName;   
+    document.getElementById("emailID").value = currentContact.email;   
+    document.getElementById("cityID").value = currentContact.city;   
+    document.getElementById("stateID").value = currentContact.state;
+    document.getElementById("zipID").value = currentContact.zip;
 
+
+    // Todo: Add additional fields.
+    document.getElementById("statusID").innerHTML = "Status: Viewing contact " + (currentContactIndex+1) + " of " + (contactArray.length);
+    document.getElementById("indexID").innerHTML;  
+}
+
+function importContacts() {
+    console.log("importContacts");
+    loadIndexandContacts(); 
+}
+
+function logContacts() {
+    console.log("contactArray: "); 
+    console.log("contactArray"); 
+}
+// Hiding the  "Previous" button when the currentContactIndex = 0. 
 
 function previous() {
     if (currentContactIndex > 0) {
