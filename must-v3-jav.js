@@ -6,6 +6,16 @@ var currentContactIndex = 0;
 var consoleForm = []; 
 
 // Functions
+function initApplication(){ 
+    console.log("Mustang v3 Starting");
+    document.getElementById("nameID").value = "";   
+    document.getElementById("emailID").value = "";   
+    document.getElementById("cityID").value = "";   
+    document.getElementById("stateID").value = "";
+    document.getElementById("zipID").value = ""; 
+
+}
+
 function viewCurrentContact() {
     currentContact = contactArray[currentContactIndex];
     console.log(currentContact);
@@ -24,6 +34,11 @@ function viewCurrentContact() {
 function importContacts() {
     console.log("importContacts");
     loadIndexandContacts(); 
+}
+
+function logContacts() {
+    console.log("contactArray: "); 
+    console.log("contactArray"); 
 }
 // Hiding the  "Previous" button when the currentContactIndex = 0. 
 function previous() {
