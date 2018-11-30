@@ -12,6 +12,7 @@
         <title>Mustang v2 </title>
         <link rel="stylesheet" href="must-v3-style.css">
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> 
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
         <link rel="stylesheet" href="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awsomplete.css"> 
         <script src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script> 
         <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
@@ -26,6 +27,11 @@
                 <button type="button" onclick="loadContactstoServer()"> Load </button>
                 <button type="button" onclick="logContacts()">Log Contacts </button>
                 <br><br>   
+                <div class = "ui-widget">
+                        <p>Enter A Local Zip </p>
+                        <label for="automplete-1">Zip Search: </label>
+                        <input id="automplete-1">
+                    </div>            
             <table>
             <tr>
                 <td>Name:</td>
@@ -68,13 +74,6 @@
             </td>
             </tr>
         </table>
-        <div class = "ui-widget">
-            <p>Enter A Local Zip </p>
-            <label for="automplete-1">Zip Search: </label>
-            <input id="automplete-1">
-        </div>
-
-
         <p id="statusID"></p>
         <br><br><hr>
         Data and Test Functions:<br>
