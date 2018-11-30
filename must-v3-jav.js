@@ -41,6 +41,16 @@ function logContacts() {
     console.log("contactArray"); 
 }
 // Hiding the  "Previous" button when the currentContactIndex = 0. 
+function loadZip() { 
+    var availableTutorials  =  new XMLHttpRequest(); 
+    availableTutorials.open('GET', 'https://mustang-index.azurewebsites.net/index.json');
+
+    $( "#automplete-1" ).autocomplete({
+        source: availableTutorials
+    });
+};
+
+
 function previous() {
     if (currentContactIndex > 0) {
        currentContactIndex--;
