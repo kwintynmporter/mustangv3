@@ -161,10 +161,49 @@ function zipBlurFunction() {
     });
 }
 
+function zipToCityState() { 
+    var zip = document.getElementById("zipID").value
+    console.log("zip:" +zip); 
+
+    console.log("function getPlace(zip) { ... }");
+    var xhr = new XMLHttpRequest(); 
+    
+    xhr.onreadystatechange = function() { 
+        if (xhr.readyState == 4 && xhr.status == 200) { 
+            var result = xhr.responseText; 
+            console.log("ZipToCityState Result:" + result); 
+            var place = result.split(','); 
+            if(document.getElementById("cityId").value == "") 
+                document.getElementById("cityId").value = place[0]; 
+            if(document.getElementById("stateId").value =="")
+                document.getElementById("stateId").value = place[1]; 
+        }
+    }
+    xhr.open('GET', "zip-to-city-state.php?zip="+zip); 
+    xhr.send(null); 
+}
 function keyPressed() {
     console.log('keyPressed()');
 
     // This type of function should be useful in search as it implements keyPressed.
+}
+
+function loadIndexandContacts() {
+    var indexRequest = new XMLHttpRequest(); 
+    indexRequest.open('GET', 'https://mustang-index.azurewebsites.net/index.json'); 
+    indexRequest.onload = function() { 
+        console.log("Index JSON:" + indexRequest.responseText);
+        document.getElementById("indexID").innerHTML = indexRequest.responseText; 
+        contactIndex = JSON.parse(indexRequest.responseText);
+        for (i=0; i<contactIndex.length; i++) { 
+            contactURLArray.push(contactIndex[i].contactURLArray); 
+        }
+        console.log("ContactURLArray: " + JSONstringify(contactURLArray)); 
+        loadContacts(); 
+    }
+    indexRequest.send(); 
+
+
 }
 
 function getPlace() {
